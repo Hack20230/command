@@ -27,6 +27,18 @@ Windows(注意盘符)
 for /r D:\ %i in (index.js*) do whoami > %i/../test.txt
 
 ```
+修改一下，最好是将路径写入WEB目录下，而且不加../更好
+
+Linux
+```
+find /|grep index.js|while read f;do sh -c "pwd" >$(dirname $f)/test.txt;done
+```
+Windows(注意盘符)
+```
+for /r D:\ %i in (index.js*) do echo %i > %i/test.txt
+
+```
+
 
 
 ## 写shell
